@@ -1,0 +1,35 @@
+.alignLogo{
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    padding: 70px 0;
+    text-align: center;
+  }
+  .displayG{
+    display:grid;
+    grid-template-columns: auto auto;
+    justify-content:center;
+    align-items:center;
+    grid-gap: 550px;
+
+  }
+
+  @media only screen and (max-width:1200px){
+    .displayG{
+      display:grid;
+      grid-template-columns:auto auto;
+      justify-content:center;
+      align-items:center;
+      grid-gap: 100px;
+    }
+  }
+
+  @media only screen and (max-width:500px){
+    .displayG{
+      display:grid;
+      grid-template-columns:auto;
+      justify-content:center;
+      align-items:center;
+      grid-gap: 0px;
+    }
+  }
