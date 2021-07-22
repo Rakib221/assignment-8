@@ -19,7 +19,7 @@ const LeagueDetails = () => {
             .then(data => setSingleLeague(data.leagues[0]))
     };
     useEffect(loadLeaguesById, [leagueId]);
-    const {strLogo, strLeague, dateFirstEvent, strCountry, strSport, strGender, strDescriptionEN, strFacebook, strTwitter, strPoster, strYoutube, strFanart1} = singleLeague;
+    const {strLogo, strLeague, dateFirstEvent, strCountry, strSport, strGender, strDescriptionEN, strFacebook, strTwitter, strYoutube} = singleLeague;
     // conditional image 
     let strPicture;
     if (strGender === 'Male') {
@@ -30,11 +30,11 @@ const LeagueDetails = () => {
     }
     // if strPoster is empty
     // let strCreateNewPoster;
-    // if (strPoster === null || "") {
-    //     strCreateNewPoster = strFanart1;
+    // if (singleLeague.strPoster === null || "") {
+    //     strCreateNewPoster = singleLeague.strFanart1;
     // }
     // else{
-    //     strCreateNewPoster = strPoster;
+    //     strCreateNewPoster = singleLeague.strPoster;
     // }
     // console.log(singleLeague);
     // console.log(singleLeague.strFacebook);

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import './SoccerLeaguesFind.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const SoccerLeaguesFind = (props) => {
     // console.log(props.league);

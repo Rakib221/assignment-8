@@ -1,11 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import SoccerLeagues from './Components/SoccerLeagues/SoccerLeagues';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Error from './Components/Error/Error';
 import LeagueDetails from './Components/LeagueDetails/LeagueDetails';
