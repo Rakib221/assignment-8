@@ -87,9 +87,9 @@ const LeagueDetails = () => {
 
                         </div>
                         <div className="col-lg-4 d-flex justify-content-center align-items-center">
-                            <a className="mx-2" target="_blank" href={`${strFacebook}`}><FaFacebook/></a>
-                            <a className="mx-2" target="_blank" href={strYoutube}><FaYoutube style={{color:'red'}}/></a>
-                            <a className="mx-2" target="_blank" href={strTwitter}><FaTwitter/></a>
+                            <a className="mx-2" href={`https://${strFacebook}`}><FaFacebook/></a>
+                            <a className="mx-2" href={`https://${strYoutube}`}><FaYoutube style={{color:'red'}}/></a>
+                            <a className="mx-2" href={`https://${strTwitter}`}><FaTwitter/></a>
                         </div>
                     </div>
                     <div className="col-lg-4">
