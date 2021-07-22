@@ -3,7 +3,7 @@ import React from 'react';
 const Error = () => {
     return (
         <div>
-            guru ghor banaila ki diya
+            Sorry the page not found
         </div>
     );
 };

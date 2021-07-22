@@ -6,7 +6,8 @@ import './SoccerLeagues.css';
 const SoccerLeagues = () => {
     const [leagues, setLeagues] = useState([])
     const selectedLeagues = leagues.slice(0, 12);
-    console.log(selectedLeagues);
+    // console.log(selectedLeagues);
+    //Load all league
     const loadLeagues = () => {
         const url = 'https://www.thesportsdb.com/api/v1/json/1/all_leagues.php';
         fetch(url)
@@ -14,6 +15,7 @@ const SoccerLeagues = () => {
             .then(data => setSoccerData(data.leagues))
     }
     useEffect(loadLeagues, []);
+    //filter league by soccer
     const setSoccerData = (leaguesData) => {
 
         const filterLeagues = leaguesData.filter(league => league.strSport === "Soccer");
@@ -23,7 +25,7 @@ const SoccerLeagues = () => {
         <div>
             <div style={{ height: '200px', backgroundImage: `url(${backgroundImage})` }}>
                 <div className="alignText">
-                    <p className="d-flex justify-content-center align-items-center"><h1 style={{ color: 'white' }}>Sports Mania</h1></p>
+                    <p className="d-flex justify-content-center align-items-center"><h1 style={{ color: 'white' }}>Sports Bible</h1></p>
                 </div>
             </div>
             <div className="displayGrid mt-5">

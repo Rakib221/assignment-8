@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFlag, faFutbol, faVenusMars, faFacebook, faBrowser, faTwitter, github } from '@fortawesome/free-solid-svg-icons';
-import Facebook from './facebook.png';
-import Twitter from './twitter.png';
-import YouTube from './youtube.png';
+import { faFlag, faFutbol, faVenusMars} from '@fortawesome/free-solid-svg-icons';
+import { IconContext } from 'react-icons';
+import { FaFacebook, FaTwitter, FaYoutube,} from 'react-icons/fa';
+import Male from './messi.jpg';
+import Female from './Usa.jpg';
 import backgroundImage from '../../footballStadium.jpg';
 import './LeagueDetails.css';
 const LeagueDetails = () => {
     const { leagueId } = useParams();
     const [singleLeague, setSingleLeague] = useState([]);
+    //load data for details
     const loadLeaguesById = () => {
         const urlId = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${leagueId}`;
         fetch(urlId)
@@ -18,17 +20,28 @@ const LeagueDetails = () => {
     };
     useEffect(loadLeaguesById, [leagueId]);
     const {strLogo, strLeague, dateFirstEvent, strCountry, strSport, strGender, strDescriptionEN, strFacebook, strTwitter, strPoster, strYoutube, strFanart1} = singleLeague;
-    let strCreateNewPoster;
-    if (strPoster === null || "") {
-        strCreateNewPoster = strFanart1;
+    // conditional image 
+    let strPicture;
+    if (strGender === 'Male') {
+        strPicture = Male;
     }
     else{
-        strCreateNewPoster = strPoster;
+        strPicture = Female;
     }
-    console.log(singleLeague);
-    console.log(singleLeague.strFacebook);
+    // if strPoster is empty
+    // let strCreateNewPoster;
+    // if (strPoster === null || "") {
+    //     strCreateNewPoster = strFanart1;
+    // }
+    // else{
+    //     strCreateNewPoster = strPoster;
+    // }
+    // console.log(singleLeague);
+    // console.log(singleLeague.strFacebook);
     return (
         <div>
+            {/* provide design to icon */}
+            <IconContext.Provider value={{size:'40px'}}>
             <div>
                 <div style={{ height: '200px', backgroundImage: `url(${backgroundImage})` }}>
                     <div className="d-flex justify-content-center align-items-center alignLogo" >
@@ -51,7 +64,7 @@ const LeagueDetails = () => {
                                 <p className="text-white"><FontAwesomeIcon icon={faVenusMars} /> Gender: {strGender}</p>
                             </div>
                             <div>
-                                <img style={{ width: '150px' }} className="m-2 rounded" src={strCreateNewPoster} alt="" srcset="" />
+                                <img style={{ width: '170px',height:'190px' }} className="m-2 rounded" src={strPicture} alt="" srcset="" />
                             </div>
                         </div>
                     </div>
@@ -74,9 +87,9 @@ const LeagueDetails = () => {
 
                         </div>
                         <div className="col-lg-4 d-flex justify-content-center align-items-center">
-                            <a target="_blank" href={strFacebook}><img style={{ width: '40px' }} src={Facebook} alt="" srcset="" /></a>
-                            <a target="_blank" href={strYoutube}><img style={{ width: '40px' }} src={YouTube} alt="" srcset="" /></a>
-                            <a target="_blank" href={strTwitter}><img style={{ width: '40px' }} src={Twitter} alt="" srcset="" /></a>
+                            <a className="mx-2" target="_blank" href={`${strFacebook}`}><FaFacebook/></a>
+                            <a className="mx-2" target="_blank" href={strYoutube}><FaYoutube style={{color:'red'}}/></a>
+                            <a className="mx-2" target="_blank" href={strTwitter}><FaTwitter/></a>
                         </div>
                     </div>
                     <div className="col-lg-4">
@@ -84,6 +97,7 @@ const LeagueDetails = () => {
                     </div>
                 </div>
             </div>
+            </IconContext.Provider>
         </div>
     );
 };

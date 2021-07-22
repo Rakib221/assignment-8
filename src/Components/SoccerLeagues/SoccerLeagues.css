@@ -11,12 +11,6 @@
     padding: 70px 0;
     text-align: center;
 }
-* {
-    box-sizing: border-box;
-  }
-  html {
-    font-family: "Lucida Sans", sans-serif;
-  } 
 
   @media only screen and (max-width:1200px){
     .displayGrid{
